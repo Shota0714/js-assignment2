@@ -24,7 +24,7 @@ class Smoothie {
         const option = document.createElement("option");
         option.textContent = this.name;
         select.appendChild(option);
-        
+
         const h3 = document.createElement("h3");
         h3.textContent = `${this.name}`;
         section.appendChild(h3);
@@ -37,6 +37,17 @@ class Smoothie {
         };
     };
 };
+
+const button = document.createElement("button");
+button.textContent = "Order";
+document.body.appendChild(button);
+button.addEventListener("click", function(event) {
+    event.preventDefault();
+    const selectedSmoothie = select.value;
+    const h3 = document.createElement("h3");
+    h3.textContent = `You ordered: ${selectedSmoothie}`;
+    document.body.appendChild(h3);
+});
 
 const smoothie1 = new Smoothie("Tropical Smoothie", ["Banana", "Mango", "Pineapple"]);
 smoothie1.serveIt();
